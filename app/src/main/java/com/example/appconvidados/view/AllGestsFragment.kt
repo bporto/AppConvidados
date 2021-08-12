@@ -1,4 +1,4 @@
-package com.example.appconvidados.ui.gallery
+package com.example.appconvidados.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.example.appconvidados.databinding.FragmentGalleryBinding
+import com.example.appconvidados.databinding.FragmentHomeBinding
+import com.example.appconvidados.viewmodel.AllGestsViewModel
 
-class PresentFragment : Fragment() {
+class AllGestsFragment : Fragment() {
 
-    private lateinit var presentViewModel: PresentViewModel
-    private var _binding: FragmentGalleryBinding? = null
+    private lateinit var homeViewModel: AllGestsViewModel
+    private var _binding: FragmentHomeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,14 +25,14 @@ class PresentFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        presentViewModel =
-            ViewModelProvider(this).get(PresentViewModel::class.java)
+        homeViewModel =
+            ViewModelProvider(this).get(AllGestsViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
-        presentViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.textHome
+        homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

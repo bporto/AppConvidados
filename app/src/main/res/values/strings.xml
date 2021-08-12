@@ -10,4 +10,5 @@
     <string name="menu_all_guest">Todos</string>
     <string name="menu_presents">Presentes</string>
     <string name="menu_absents">Ausentes</string>
+    <string name="name">Nome</string>
 </resources>
